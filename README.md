@@ -1,0 +1,2 @@
+# cats-tracker-app
+Jack owns so many cats that he can't keep track of all of them. He needs some way to keep track of all of his cats - almost like a Pokedex for cats. Requirements your app should be able to complete the following tasks:  Add a new Cat (Name, Breed, Description, or anything else you think would be important)  Remove Cats  Edit Cats  List all of his Cats  Persist data using Redux
