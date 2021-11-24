@@ -1,33 +1,39 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { SET_LISTS, SET_ACTIVE_LIST_ID } from '../types';
-import { STORAGE_KEYS } from '../../constants/index';
+import { STORAGE_KEYS } from '../../constants';
 import store from '../';
 
+// Get lists action
 export const getLists = (onSuccess = () => { }, onError = () => { }) => {
     return async dispatch => {
         try {
-            const listsRes = await AyncStorage.getItem(STORAGE_KEYS.lists);
+            const listsRes = await AsyncStorage.getItem(STORAGE_KEYS.lists);
             const lists = listsRes ? JSON.parse(listsRes) : [];
+
             dispatch({
                 type: SET_LISTS,
                 payload: lists,
             });
             onSuccess();
-        } catch (e) {
-            console.log(e);
+        } catch (err) {
+            console.log(err);
             onError();
         }
-    }
-}
+    };
+};
 
+// Create list action
 export const createList = (name, onSuccess = () => { }, onError = () => { }) => {
     return async dispatch => {
         try {
             const newList = {
                 name,
-                id: `list-${new Date().getTime}`,
+                id: `list-${new Date().getTime()}`,
             };
+
             const { lists } = store.getState().list;
+
             const listsCopy = [...lists];
             listsCopy.push(newList);
             await AsyncStorage.setItem(STORAGE_KEYS.lists, JSON.stringify(listsCopy));
@@ -37,9 +43,9 @@ export const createList = (name, onSuccess = () => { }, onError = () => { }) => 
                 payload: listsCopy,
             });
             onSuccess();
-        } catch (e) {
-            console.log(e);
+        } catch (err) {
+            console.log(err);
             onError();
         }
-    }
-}
+    };
+};
