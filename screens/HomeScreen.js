@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text, Button, ActivityIndicator } from 'react-native'
 import { useDispatch } from 'react-redux';
+import CustomButton from '../components/CustomButton';
 import Lists from '../components/Lists';
 import { Colors } from '../constants';
 import { getLists } from '../store/actions/listActions';
@@ -21,6 +22,7 @@ const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Lists />
+            <CustomButton text="Add New List" icon="add" iconColor="#fff" onPress={() => navigation.navigate('NewList')} />
         </View>
     )
 }

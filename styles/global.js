@@ -24,7 +24,7 @@ export default {
         borderBottomWidth: 2,
         borderBottomColor: Colors.quaternary,
         borderStyle: 'solid',
-        fontFamily: 'Poppins-Light',
+        // fontFamily: 'Poppins-Light',
         fontSize: 20,
         lineHeight: 28,
         marginBottom: 30,
