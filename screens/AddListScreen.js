@@ -23,7 +23,7 @@ const AddListScreen = ({ navigation }) => {
         dispatch(createList(
             name,
             () => {
-                ToastAndroid.show(`List "${name}" created!`, ToastAndroid.LONG);
+                ToastAndroid.show(`Cat "${name}" created!`, ToastAndroid.LONG);
                 Keyboard.dismiss();
                 navigation.navigate('Home');
             },

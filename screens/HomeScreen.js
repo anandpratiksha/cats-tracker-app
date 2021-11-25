@@ -22,7 +22,7 @@ const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Lists navigation={navigation} />
-            <CustomButton text="Add new list" icon="add" iconColor="#fff" onPress={() => navigation.navigate('NewList')} />
+            <CustomButton text="Add new PAW" icon="add" iconColor="#fff" onPress={() => navigation.navigate('NewList')} />
         </View>
     );
 };

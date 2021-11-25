@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { Colors } from '../constants';
 import globalStyles from '../styles/global';
 
@@ -33,7 +32,6 @@ const Tasks = ({ navigation, listId }) => {
                     style={!item.completed ? globalStyles.listItem : { ...globalStyles.listItem, ...styles.itemCompleted }}>
                     <View style={styles.textWrapper}>
                         <Text style={styles.itemText}>{item.name}</Text>
-                        {item.completed && <Icon name="checkmark-circle-outline" size={30} color={Colors.primary} />}
                     </View>
                 </TouchableOpacity>}
             />
@@ -56,8 +54,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     itemText: {
-        fontSize: 14,
-        fontFamily: 'Poppins-Regular',
+        fontSize: 20,
         flex: 1,
         paddingRight: 10,
     },

@@ -31,9 +31,9 @@ const styles = StyleSheet.create({
         // flex: 1,
     },
     itemText: {
-        fontSize: 26,
+        fontSize: 25,
         color: '#000',
     },
 });
 
-export default Lists
+export default Lists;

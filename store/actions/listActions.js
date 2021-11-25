@@ -3,7 +3,6 @@ import { SET_LISTS, SET_ACTIVE_LIST_ID } from '../types';
 import { STORAGE_KEYS } from '../../constants';
 import store from '../';
 
-// Get lists action
 export const getLists = (onSuccess = () => { }, onError = () => { }) => {
     return async dispatch => {
         try {
@@ -22,7 +21,6 @@ export const getLists = (onSuccess = () => { }, onError = () => { }) => {
     };
 };
 
-// Create list action
 export const createList = (name, onSuccess = () => { }, onError = () => { }) => {
     return async dispatch => {
         try {
@@ -49,7 +47,6 @@ export const createList = (name, onSuccess = () => { }, onError = () => { }) => 
     };
 };
 
-// Delete list
 export const deleteList = (id, onSuccess = () => { }, onError = () => { }) => {
     return async dispatch => {
         try {
@@ -70,7 +67,6 @@ export const deleteList = (id, onSuccess = () => { }, onError = () => { }) => {
     };
 };
 
-// Set active list id
 export const setActiveListId = (id) => {
     return {
         type: SET_ACTIVE_LIST_ID,

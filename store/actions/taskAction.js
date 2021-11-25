@@ -3,7 +3,6 @@ import { SET_TASKS } from '../types';
 import { STORAGE_KEYS } from '../../constants';
 import store from '../';
 
-// Get tasks
 export const getTasks = (onSuccess = () => { }, onError = () => { }) => {
     return async dispatch => {
         try {
@@ -22,7 +21,6 @@ export const getTasks = (onSuccess = () => { }, onError = () => { }) => {
     };
 };
 
-// Create task
 export const createTask = (name, listId, onSuccess = () => { }, onError = () => { }) => {
     return async dispatch => {
         try {
@@ -51,7 +49,6 @@ export const createTask = (name, listId, onSuccess = () => { }, onError = () => 
     };
 };
 
-// Update task
 export const updateTask = (task, onSuccess = () => { }, onError = () => { }) => {
     return async dispatch => {
         try {
@@ -71,7 +68,6 @@ export const updateTask = (task, onSuccess = () => { }, onError = () => { }) => 
     };
 };
 
-// Delete task
 export const deleteTask = (id, onSuccess = () => { }, onError = () => { }) => {
     return async dispatch => {
         try {

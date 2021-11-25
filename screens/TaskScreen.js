@@ -75,7 +75,7 @@ const TaskScreen = ({ route, navigation }) => {
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <View style={styles.container}>
-                <TextInput value={name} onChangeText={(val) => setName(val)} placeholder="Breed" placeholderTextColor={Colors.quaternary} style={globalStyles.input} />
+                <TextInput value={name} onChangeText={(val) => setName(val)} placeholder="Breed/Description" placeholderTextColor={Colors.quaternary} style={globalStyles.input} />
                 <CustomButton text="Update Details" onPress={updateTaskHandler} round style={styles.spaceBottom} />
                 <CustomButton text="Delete Details" onPress={deleteTaskClickHandler} round danger />
             </View>

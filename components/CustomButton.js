@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     text: {
-        fontSize: 18,
+        fontSize: 24,
         color: '#fff',
     },
     icon: {

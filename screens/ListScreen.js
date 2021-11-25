@@ -28,7 +28,7 @@ const ListScreen = ({ navigation, route }) => {
     return (
         <View style={styles.container}>
             <Tasks navigation={navigation} listId={id} />
-            <CustomButton text="Add new task" icon="add" iconColor="#fff" onPress={() => navigation.navigate('NewTask')} />
+            <CustomButton text="Add new Detail" icon="add" iconColor="#fff" onPress={() => navigation.navigate('NewTask')} />
         </View>
     );
 };

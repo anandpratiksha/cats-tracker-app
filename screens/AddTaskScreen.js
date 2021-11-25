@@ -7,25 +7,25 @@ import globalStyles from '../styles/global';
 import { createTask } from '../store/actions/taskAction';
 
 const AddTaskScreen = ({ navigation }) => {
-    const [breed, setbreed] = useState('');
+    const [name, setName] = useState('');
     const dispatch = useDispatch();
     const { tasks } = useSelector(state => state.task);
     const { activeListId } = useSelector(state => state.list);
 
     const submitHandler = () => {
-        if (breed.trim() === '') {
-            return Alert.alert('Validation', 'breed is required!');
+        if (name.trim() === '') {
+            return Alert.alert('Validation', 'Detail is required!');
         }
-        const alreadyExist = tasks.find(t => t.breed.toLowerCase() === breed.trim().toLowerCase() && t.listId === activeListId);
+        const alreadyExist = tasks.find(t => t.name.toLowerCase() === name.trim().toLowerCase() && t.listId === activeListId);
         if (alreadyExist) {
-            return Alert.alert('Validation', 'Details with this breed already exist in this list!');
+            return Alert.alert('Validation', 'Details with this name already exist in this list!');
         }
 
         dispatch(createTask(
-            breed,
+            name,
             activeListId,
             () => {
-                ToastAndroid.show(`Cat breed :"${breed}" created!`, ToastAndroid.LONG);
+                ToastAndroid.show(`Cat Detail "${name}" created!`, ToastAndroid.LONG);
                 Keyboard.dismiss();
                 navigation.goBack();
             },
@@ -36,7 +36,7 @@ const AddTaskScreen = ({ navigation }) => {
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <View style={styles.container}>
-                <TextInput style={globalStyles.input} value={breed} onChangeText={(val) => setbreed(val)} placeholder="Breed" placeholderTextColor={Colors.tertiary} />
+                <TextInput style={globalStyles.input} value={name} onChangeText={(val) => setName(val)} placeholder="Breed/Description" placeholderTextColor={Colors.tertiary} />
                 <CustomButton text="Submit" onPress={submitHandler} round />
             </View>
         </TouchableWithoutFeedback>
