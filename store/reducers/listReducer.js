@@ -1,8 +1,8 @@
-import { SET_LISTS, SET_ACTIVE_LIST_ID } from "../types";
+import { SET_LISTS, SET_ACTIVE_LIST_ID } from '../types';
 
 const initialState = {
     lists: [],
-    activeList: '',
+    activeListId: '',
 };
 
 const listReducer = (state = initialState, action) => {
@@ -12,14 +12,14 @@ const listReducer = (state = initialState, action) => {
                 ...state,
                 lists: action.payload,
             };
-
         case SET_ACTIVE_LIST_ID:
             return {
                 ...state,
                 activeListId: action.payload,
-            }
-        default: return state;
+            };
+        default:
+            return state;
     }
-}
+};
 
 export default listReducer;

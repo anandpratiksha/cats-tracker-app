@@ -7,7 +7,6 @@ export default {
     noData: {
         textAlign: 'center',
         fontSize: 26,
-        // fontFamily: 'Poppins-Regular',
     },
     listContainer: {
         paddingHorizontal: 20,
@@ -24,7 +23,6 @@ export default {
         borderBottomWidth: 2,
         borderBottomColor: Colors.quaternary,
         borderStyle: 'solid',
-        // fontFamily: 'Poppins-Light',
         fontSize: 20,
         lineHeight: 28,
         marginBottom: 30,
@@ -38,6 +36,5 @@ export default {
     },
     switchText: {
         fontSize: 18,
-        fontFamily: 'Poppins-Regular',
     },
 };

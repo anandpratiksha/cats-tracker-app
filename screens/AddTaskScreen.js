@@ -4,28 +4,30 @@ import { useDispatch, useSelector } from 'react-redux';
 import CustomButton from '../components/CustomButton';
 import { Colors } from '../constants';
 import globalStyles from '../styles/global';
-import { createList } from '../store/actions/listActions';
+import { createTask } from '../store/actions/taskAction';
 
-const AddListScreen = ({ navigation }) => {
-    const [name, setName] = useState('');
+const AddTaskScreen = ({ navigation }) => {
+    const [breed, setbreed] = useState('');
     const dispatch = useDispatch();
-    const { lists } = useSelector(state => state.list);
+    const { tasks } = useSelector(state => state.task);
+    const { activeListId } = useSelector(state => state.list);
 
     const submitHandler = () => {
-        if (name.trim() === '') {
-            return Alert.alert('Validation', 'Cat Name is required!');
+        if (breed.trim() === '') {
+            return Alert.alert('Validation', 'breed is required!');
         }
-        const alreadyExist = lists.find(l => l.name.toLowerCase() === name.trim().toLowerCase());
+        const alreadyExist = tasks.find(t => t.breed.toLowerCase() === breed.trim().toLowerCase() && t.listId === activeListId);
         if (alreadyExist) {
-            return Alert.alert('Validation', 'Cat Name with this name already exist!');
+            return Alert.alert('Validation', 'Details with this breed already exist in this list!');
         }
 
-        dispatch(createList(
-            name,
+        dispatch(createTask(
+            breed,
+            activeListId,
             () => {
-                ToastAndroid.show(`List "${name}" created!`, ToastAndroid.LONG);
+                ToastAndroid.show(`Cat breed :"${breed}" created!`, ToastAndroid.LONG);
                 Keyboard.dismiss();
-                navigation.navigate('Home');
+                navigation.goBack();
             },
             () => { ToastAndroid.show('Something went wrong, please try again!', ToastAndroid.LONG); },
         ));
@@ -34,9 +36,7 @@ const AddListScreen = ({ navigation }) => {
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <View style={styles.container}>
-                <TextInput style={globalStyles.input} value={name}
-                    onChangeText={(val) => setName(val)} placeholder="Cat Name"
-                    placeholderTextColor={Colors.tertiary} />
+                <TextInput style={globalStyles.input} value={breed} onChangeText={(val) => setbreed(val)} placeholder="Breed" placeholderTextColor={Colors.tertiary} />
                 <CustomButton text="Submit" onPress={submitHandler} round />
             </View>
         </TouchableWithoutFeedback>
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default AddListScreen;
+export default AddTaskScreen;

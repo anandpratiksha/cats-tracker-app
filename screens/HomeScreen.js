@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Text, Button, ActivityIndicator } from 'react-native'
+import { View, StyleSheet, Text, ActivityIndicator } from 'react-native';
 import { useDispatch } from 'react-redux';
-import CustomButton from '../components/CustomButton';
-import Lists from '../components/Lists';
 import { Colors } from '../constants';
 import { getLists } from '../store/actions/listActions';
-import globalStyles from '../styles/global'
+import globalStyles from '../styles/global';
+import Lists from '../components/Lists';
+import CustomButton from '../components/CustomButton';
 
 const HomeScreen = ({ navigation }) => {
     const [loading, setLoading] = useState(true);
@@ -21,16 +21,16 @@ const HomeScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Lists />
-            <CustomButton text="Add New List" icon="add" iconColor="#fff" onPress={() => navigation.navigate('NewList')} />
+            <Lists navigation={navigation} />
+            <CustomButton text="Add new list" icon="add" iconColor="#fff" onPress={() => navigation.navigate('NewList')} />
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    }
-})
+    },
+});
 
-export default HomeScreen
+export default HomeScreen;

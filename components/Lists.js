@@ -3,20 +3,24 @@ import { View, TouchableOpacity, StyleSheet, Text, Button, FlatList } from 'reac
 import { useSelector } from 'react-redux';
 import globalStyles from '../styles/global'
 
-const Lists = () => {
+const Lists = ({ navigation }) => {
 
     const { lists } = useSelector(state => state.list);
-    console.log(lists);
+
+    const itemClickHandler = (item) => {
+        navigation.navigate('List', { name: item.name, id: item.id });
+    };
+
     return (
         <View style={styles.container}>
             {lists.length > 0 ? <FlatList
                 keyExtractor={(item) => item.id}
                 contentContainerStyle={globalStyles.listContainer}
                 data={lists}
-                renderItem={({ item }) => <TouchableOpacity style={globalStyles.listItem}>
+                renderItem={({ item }) => <TouchableOpacity style={globalStyles.listItem} onPress={() => itemClickHandler(item)}>
                     <Text style={styles.itemText}>{item.name}</Text>
                 </TouchableOpacity>}
-            /> : <Text style={globalStyles.noData}>No Lists</Text>}
+            /> : <Text style={globalStyles.noData}>Start your PAWTRACK , Add Lists !! </Text>}
         </View>
     )
 }
@@ -27,7 +31,6 @@ const styles = StyleSheet.create({
         // flex: 1,
     },
     itemText: {
-        // fontFamily: 'Poppins-Regular',
         fontSize: 26,
         color: '#000',
     },
