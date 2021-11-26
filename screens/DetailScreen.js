@@ -4,9 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Colors } from '../constants';
 import globalStyles from '../styles/global';
 import CustomButton from '../components/CustomButton';
-import { updateTask, deleteTask } from '../store/actions/taskAction';
+import { updateDetail, deleteDetail } from '../store/actions/detailAction';
 
-const TaskScreen = ({ route, navigation }) => {
+const DetailScreen = ({ route, navigation }) => {
     const [name, setName] = useState('');
     const [completed, setCompleted] = useState(false);
     const [task, setTask] = useState({});
@@ -35,7 +35,7 @@ const TaskScreen = ({ route, navigation }) => {
             completed,
         };
 
-        dispatch(updateTask(
+        dispatch(updateDetail(
             updatedTask,
             () => {
                 navigation.goBack();
@@ -56,7 +56,7 @@ const TaskScreen = ({ route, navigation }) => {
     };
 
     const deleteTaskHandler = () => {
-        dispatch(deleteTask(
+        dispatch(deleteDetail(
             task.id,
             () => {
                 navigation.goBack();
@@ -77,7 +77,7 @@ const TaskScreen = ({ route, navigation }) => {
             <View style={styles.container}>
                 <TextInput value={name} onChangeText={(val) => setName(val)} placeholder="Breed/Description" placeholderTextColor={Colors.quaternary} style={globalStyles.input} />
                 <CustomButton text="Update Details" onPress={updateTaskHandler} round style={styles.spaceBottom} />
-                <CustomButton text="Delete Details" onPress={deleteTaskClickHandler} round danger />
+                <CustomButton text="Delete Details" onPress={deleteTaskClickHandler} />
             </View>
         </TouchableWithoutFeedback>
     );
@@ -93,4 +93,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default TaskScreen;
+export default DetailScreen;

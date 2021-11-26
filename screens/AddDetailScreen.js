@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import CustomButton from '../components/CustomButton';
 import { Colors } from '../constants';
 import globalStyles from '../styles/global';
-import { createTask } from '../store/actions/taskAction';
+import { createDetail } from '../store/actions/detailAction';
 
-const AddTaskScreen = ({ navigation }) => {
+const AddDetailScreen = ({ navigation }) => {
     const [name, setName] = useState('');
     const dispatch = useDispatch();
     const { tasks } = useSelector(state => state.task);
@@ -21,7 +21,7 @@ const AddTaskScreen = ({ navigation }) => {
             return Alert.alert('Validation', 'Details with this name already exist in this list!');
         }
 
-        dispatch(createTask(
+        dispatch(createDetail(
             name,
             activeListId,
             () => {
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default AddTaskScreen;
+export default AddDetailScreen;

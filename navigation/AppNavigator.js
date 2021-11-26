@@ -7,8 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import HomeScreen from '../screens/HomeScreen';
 import AddListScreen from '../screens/AddListScreen';
 import ListScreen from '../screens/ListScreen';
-import AddTaskScreen from '../screens/AddTaskScreen';
-import TaskScreen from '../screens/TaskScreen';
+import AddDetailScreen from '../screens/AddDetailScreen';
+import DetailScreen from '../screens/DetailScreen';
 import { Colors } from '../constants';
 import { deleteList } from '../store/actions/listActions';
 
@@ -87,12 +87,12 @@ const TasksNavigator = () => {
             />
             <TasksStackNavigator.Screen
                 name="NewTask"
-                component={AddTaskScreen}
+                component={AddDetailScreen}
                 options={{ ...defaultStyles, title: 'Add Details' }}
             />
             <TasksStackNavigator.Screen
-                name="Task"
-                component={TaskScreen}
+                name="Details"
+                component={DetailScreen}
                 options={{ ...defaultStyles, title: 'Update Details' }}
             />
         </TasksStackNavigator.Navigator>
