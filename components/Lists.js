@@ -6,6 +6,7 @@ import globalStyles from '../styles/global'
 const Lists = ({ navigation }) => {
 
     const { lists } = useSelector(state => state.list);
+
     const itemClickHandler = (item) => {
         navigation.navigate('List', { name: item.name, id: item.id });
     };

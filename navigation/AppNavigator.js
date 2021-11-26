@@ -7,8 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import HomeScreen from '../screens/HomeScreen';
 import AddListScreen from '../screens/AddListScreen';
 import ListScreen from '../screens/ListScreen';
-import AddDetailScreen from '../screens/AddDetailScreen';
-import DetailScreen from '../screens/DetailScreen';
+import AddTaskScreen from '../screens/AddTaskScreen';
+import TaskScreen from '../screens/TaskScreen';
 import { Colors } from '../constants';
 import { deleteList } from '../store/actions/listActions';
 
@@ -37,7 +37,6 @@ const TasksNavigator = () => {
         if (listHasTasks) {
             return Alert.alert('Cannot delete', 'List cannot be deleted because it is not empty. First delete details in this list!');
         }
-
         Alert.alert(
             'Delete list',
             'Are you sure you want to delete this list ?',
@@ -87,12 +86,12 @@ const TasksNavigator = () => {
             />
             <TasksStackNavigator.Screen
                 name="NewTask"
-                component={AddDetailScreen}
+                component={AddTaskScreen}
                 options={{ ...defaultStyles, title: 'Add Details' }}
             />
             <TasksStackNavigator.Screen
-                name="Details"
-                component={DetailScreen}
+                name="Task"
+                component={TaskScreen}
                 options={{ ...defaultStyles, title: 'Update Details' }}
             />
         </TasksStackNavigator.Navigator>

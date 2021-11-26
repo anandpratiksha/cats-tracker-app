@@ -1,9 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SET_TASKS } from '../types';
 import { STORAGE_KEYS } from '../../constants';
-import store from '..';
+import store from '../';
 
-export const getDetail = (onSuccess = () => { }, onError = () => { }) => {
+export const getTasks = (onSuccess = () => { }, onError = () => { }) => {
     return async dispatch => {
         try {
             const tasksRes = await AsyncStorage.getItem(STORAGE_KEYS.tasks);
@@ -21,7 +21,7 @@ export const getDetail = (onSuccess = () => { }, onError = () => { }) => {
     };
 };
 
-export const createDetail = (name, listId, onSuccess = () => { }, onError = () => { }) => {
+export const createTask = (name, listId, onSuccess = () => { }, onError = () => { }) => {
     return async dispatch => {
         try {
             const newTask = {
@@ -49,7 +49,7 @@ export const createDetail = (name, listId, onSuccess = () => { }, onError = () =
     };
 };
 
-export const updateDetail = (task, onSuccess = () => { }, onError = () => { }) => {
+export const updateTask = (task, onSuccess = () => { }, onError = () => { }) => {
     return async dispatch => {
         try {
             const { tasks } = store.getState().task;
@@ -68,7 +68,7 @@ export const updateDetail = (task, onSuccess = () => { }, onError = () => { }) =
     };
 };
 
-export const deleteDetail = (id, onSuccess = () => { }, onError = () => { }) => {
+export const deleteTask = (id, onSuccess = () => { }, onError = () => { }) => {
     return async dispatch => {
         try {
             const { tasks } = store.getState().task;

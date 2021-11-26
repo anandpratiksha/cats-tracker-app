@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import globalStyles from '../styles/global';
 import { Colors } from '../constants';
 import CustomButton from '../components/CustomButton';
-import Details from '../components/Details';
-import { getDetail } from '../store/actions/detailAction';
+import Tasks from '../components/Tasks';
+import { getTasks } from '../store/actions/taskAction';
 import { setActiveListId } from '../store/actions/listActions';
 
 const ListScreen = ({ navigation, route }) => {
@@ -14,7 +14,7 @@ const ListScreen = ({ navigation, route }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getDetail(() => setLoading(false)));
+        dispatch(getTasks(() => setLoading(false)));
     }, [dispatch]);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const ListScreen = ({ navigation, route }) => {
 
     return (
         <View style={styles.container}>
-            <Details navigation={navigation} listId={id} />
+            <Tasks navigation={navigation} listId={id} />
             <CustomButton text="Add new Detail" icon="add" iconColor="#fff" onPress={() => navigation.navigate('NewTask')} />
         </View>
     );

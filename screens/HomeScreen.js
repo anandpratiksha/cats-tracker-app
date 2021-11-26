@@ -18,7 +18,6 @@ const HomeScreen = ({ navigation }) => {
     if (loading) {
         return <ActivityIndicator color={Colors.primary} size="large" style={globalStyles.loader} />;
     }
-
     return (
         <View style={styles.container}>
             <Lists navigation={navigation} />

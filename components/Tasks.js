@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Colors } from '../constants';
 import globalStyles from '../styles/global';
 
-const Details = ({ navigation, listId }) => {
+const Tasks = ({ navigation, listId }) => {
     const { tasks } = useSelector(state => state.task);
     const [tasksLoaded, setTasksLoaded] = useState(false);
     const [data, setData] = useState([]);
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Details;
+export default Tasks;
